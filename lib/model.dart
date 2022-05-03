@@ -6,14 +6,13 @@ Sexo? strToSexo(String? str) {
   }
   switch (str.toUpperCase()) {
     case 'MASCULINO':
-    case 'M' :
+    case 'M':
       return Sexo.MASCULINO;
     case 'FEMININO':
-    case 'F' :
+    case 'F':
       return Sexo.FEMININO;
   }
 }
-
 
 class Pessoa {
   String? nome;
@@ -51,11 +50,11 @@ class Pessoa {
 class Programador extends Pessoa {
   double? salario;
 
-  Programador(String? nome, String? cpf, DateTime? nascimento, Sexo? sexo,
-      this.salario)
+  Programador(
+      String? nome, String? cpf, DateTime? nascimento, Sexo? sexo, this.salario)
       : super(nome, cpf, nascimento, sexo);
 
-  Programador.fromMap(Map<String, String> map) : super.fromMap() {
+  Programador.fromMap(Map<String, String> map) : super.fromMap(map) {
     salario = double.tryParse(map[salario] ?? "0.0");
   }
 
@@ -84,5 +83,15 @@ void mainEntidades() {
   // pessoa.sexo = Sexo.MASCULINO;
   // pessoa.salario = isBoss ? 20000.0 : 10000.0;
 
-  print(pessoa.toString());
+  // print(pessoa.toString());
+
+  List<String> nomes = ['Carlos', 'João', 'Samuel', 'Antonio', 'Cleiton'];
+
+  // FOR tradicional estilo PHP/Java
+  for (int i = 0; i < nomes.length; i++) {
+    if (nomes[i].toUpperCase().startsWith('S')) {
+      break;
+    }
+    print("$i = ${nomes[i]}");
+  }
 }
