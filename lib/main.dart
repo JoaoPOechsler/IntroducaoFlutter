@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:introducao_flutter/fiscal.dart';
 import 'package:introducao_flutter/model.dart';
 
@@ -14,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,9 +28,10 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        scaffoldBackgroundColor: Color(0xFF383838)
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Car Meet App'),
     );
   }
 }
@@ -74,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
@@ -99,12 +105,23 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Você clicou no Botão essa quantidade de vezes:',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontStyle: FontStyle.italic,
+                color: Colors.white,
+              ),
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 70.0,
+              ),
             ),
+            // Icon(Icons.info, size: 60.0, color: Colors.purple),
+            Image.network('https://cdn130.picsart.com/f172ccf5-890b-'
+                '497c-b2bc-e32537169b4e/373122669069211.png', width: 340.0,)
           ],
         ),
       ),
